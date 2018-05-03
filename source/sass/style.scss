@@ -1,0 +1,12 @@
+@import "normalize.scss";
+@import "fonts.scss";
+@import "variables.scss";
+@import "global.scss";
+
+/* блоки  БЭМ */
+
+@import "blocks/visually-hidden.scss";
+@import "blocks/main.scss";
+@import "blocks/card-grid.scss";
+@import "blocks/product-card.scss";
+@import "blocks/features.scss";

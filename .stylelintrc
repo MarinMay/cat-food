@@ -1,0 +1,10 @@
+{
+  "extends": "stylelint-config-htmlacademy",
+
+  "rules": {
+    "declaration-no-important": true,
+    "indentation": [2, {"ignore": ["inside-parens"]}],
+    "font-family-no-missing-generic-family-keyword": true,
+    "selector-max-id": 1
+  }
+}

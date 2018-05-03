@@ -1,0 +1,337 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.product-card__link-pack {
+  // для ширины меньше 375пикселей размеры резиновые
+  display: block;
+  position: relative;
+  flex-grow: 2;
+  min-height: calc(128vw + #{$card-border-width-both});
+  margin: $card-border-width;
+  margin-bottom: 18px;
+  padding: 4.8vw 11.73vw 75vw;
+  color: $font-color-card;
+  background-image: linear-gradient(135deg, transparent 7.7vw, $background-color-card 7.7vw);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  border-radius: 2.1vw;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -$card-border-width;
+    left: -$card-border-width;
+    width: calc(100% + #{$card-border-width-both});
+    height: calc(100% + #{$card-border-width-both});
+    border-radius: 3.2vw;
+    z-index: -1;
+    background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--default 8vw);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/kot_preview.png");
+    background-repeat: no-repeat;
+    background-position: 49% 176%;
+    background-size: 117%;
+    border-radius: 2.1vw;
+  }
+
+  &:hover {
+    &::after {
+      background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--default-hover 8vw);
+    }
+
+    .product-card__weight {
+      background-color: $card-color-extra--default-hover;
+    }
+  }
+
+  &:focus {
+    outline-color: yellow;
+  }
+
+  // для ширины от 375 пикселей все размеры фиксированы
+  @media (min-width: $mobile-m-width) {
+    min-height: (480px - $card-border-width-both);
+    padding: 18px 44px 266px;
+    background-image: linear-gradient(135deg, transparent 29px, $background-color-card 29px);
+    border-radius: 8px;
+
+    &::after {
+      border-radius: 12px;
+      background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--default 30px);
+    }
+
+    &::before {
+      border-radius: 8px;
+    }
+
+    &:hover::after {
+      background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--default-hover 30px);
+    }
+  }
+}
+
+.product-card__heading {
+  margin: 0 0 17px;
+  font-size: 12.8vw;
+  line-height: 14.6vw;
+  color: $font-color-card--heading;
+  font-weight: 700;
+
+  &::before {
+    content: "Сказочное заморское яство";
+    display: block;
+    width: 100%;
+    height: 5.3vw;
+    margin-bottom: 1vw;
+    color: $font-color-card;
+    font-size: 4.3vw;
+    line-height: 4.8vw;
+    font-weight: 400;
+  }
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 48px;
+    line-height: 55px;
+
+    &::before {
+      height: 20px;
+      margin-bottom: 4px;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+}
+
+.product-card__title {
+  display: block;
+  margin-left: -2px;
+}
+
+.product-card__sort {
+  display: block;
+  font-size: 6.4vw;
+  line-height: 6.4vw;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.product-card__weight {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  bottom: 3.2vw;
+  right: 3.2vw;
+  min-width: 21.3vw;
+  min-height: 21.3vw;
+  padding: 2.1vw;
+  font-size: 5.6vw;
+  line-height: 5.9vw;
+  border-radius: 50%;
+  color: $font-color-card--additional;
+  background-color: $card-color-extra--default;
+
+
+  @media (min-width: $mobile-m-width) {
+    bottom: 12px;
+    right: 12px;
+    min-width: 80px;
+    min-height: 80px;
+    padding: 8px;
+    font-size: 21px;
+    line-height: 22px;
+  }
+}
+
+.product-card__weight-value {
+  font-size: 11vw;
+  line-height: 11vw;
+  font-weight: 400;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 42px;
+    line-height: 42px;
+  }
+}
+
+.product-card__call {
+  margin: 0;
+  font-size: 3.5vw;
+  text-align: center;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 13px;
+  }
+}
+
+.product-card__link-word {
+  position: relative;
+  color: $font-color-link;
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: calc(100% - 4px);
+    height: 100%;
+    border-bottom: 1px dashed $font-color-link;
+  }
+
+  &:hover {
+    color: $font-color-link--hover;
+    border-bottom-color: $font-color-link;
+  }
+
+  &:focus {
+    outline-color: yellow;
+  }
+}
+
+.product-card__caption {
+  display: none;
+  margin: 0;
+  font-size: 3.5vw;
+  text-align: center;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 13px;
+  }
+}
+
+.product-card__ended {
+  margin: 0;
+  display: none;
+  font-size: 3.5vw;
+  text-align: center;
+  color: $font-color-card-ended;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 13px;
+  }
+}
+
+.product-card--selected {
+  .product-card__link-pack::after {
+    background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--selected 8vw);
+
+    @media (min-width: $mobile-m-width) {
+      background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--selected 30px);
+    }
+  }
+
+  .product-card__weight,
+  .product-card__link-pack:hover .product-card__weight {
+    background-color: $card-color-extra--selected;
+  }
+
+  .product-card__caption {
+    display: block;
+  }
+
+  .product-card__call {
+    display: none;
+  }
+}
+
+.product-card--selected-hover {
+  .product-card__link-pack:hover {
+    &::after {
+      background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--selected-hover 8vw);
+    }
+
+    .product-card__heading::before {
+      content: "Котэ не одобряет?";
+      color: $card-color-extra--selected-hover;
+    }
+
+    .product-card__weight {
+      background-color: $card-color-extra--selected-hover;
+    }
+  }
+
+  @media (min-width: $mobile-m-width) {
+    .product-card__link-pack:hover::after {
+      background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--selected-hover 30px);
+    }
+  }
+}
+
+.product-card--disabled {
+  .product-card__heading {
+    color: $font-color-card--disabled;
+
+    &::before {
+      color: $font-color-card--disabled;
+    }
+  }
+
+  .product-card__link-pack {
+    cursor: default;
+
+    &::before {
+      opacity: 0.5;
+    }
+
+    &::after {
+      background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--disabled 8vw);
+    }
+
+    &:hover {
+      &::after {
+        background-image: linear-gradient(135deg, transparent 8vw, $card-color-extra--disabled 8vw);
+      }
+
+      .product-card__weight {
+        background-color: $card-color-extra--disabled;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (min-width: $mobile-m-width) {
+      &::after {
+        background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--disabled 30px);
+      }
+
+      &:hover::after {
+        background-image: linear-gradient(135deg, transparent 30px, $card-color-extra--disabled 30px);
+      }
+    }
+  }
+
+  .product-card__weight {
+    background-color: $card-color-extra--disabled;
+  }
+
+  .product-card__features {
+    color: $font-color-card--disabled;
+  }
+
+  .product-card__ended {
+    display: block;
+  }
+
+  .product-card__call {
+    display: none;
+  }
+}

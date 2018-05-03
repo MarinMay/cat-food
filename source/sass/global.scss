@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  font-size: 3.7vw;
+  line-height: 4.3vw;
+
+  @media (min-width: $mobile-m-width) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
