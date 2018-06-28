@@ -4,7 +4,7 @@
 Выполнил: *Ваганова Марина*
 
 
-[Оубликованная страница](https://marinmay.github.io/cat-food/ "Покорми кота")
+[Оубликованная страница](https://marina-vaganova.github.io/cat-food/ "Покорми кота")
 
 Сборка проекта gulp, препроцессор sass
 
